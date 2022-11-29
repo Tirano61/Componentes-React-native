@@ -16,7 +16,9 @@ export const Animation102Screen = () => {
         dx: pan.x,
         dy: pan.y,
       }
-    ]),
+    ],{
+      useNativeDriver: false,
+    }),
     onPanResponderRelease: () => {
       Animated.spring(
         pan,
