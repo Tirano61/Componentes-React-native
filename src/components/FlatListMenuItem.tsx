@@ -33,6 +33,7 @@ export const FlatListMenuItem = ({menuItem}: Props) => {
                     size={20}
                     color= 'blue'
                 />
+                
             </View>
         </TouchableOpacity>
     )
