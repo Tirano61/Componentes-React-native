@@ -1,29 +1,62 @@
 
 
 import React, {useState} from 'react'
-import { View, Switch, StyleSheet } from "react-native";
+import { View, Switch, StyleSheet, Text } from "react-native";
+import { CuatomSwitch } from '../components/CuatomSwitch';
+import { HeaderTitle } from '../components/HeaderTitle';
 
 export const SwitchScreen = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled( !isEnabled );
+  const [state, setState] = useState({
+    isActive: true,
+    isHungry: false,
+    isHappy: true,
+
+  });
+  const {isActive, isHungry, isHappy} = state;
+  
+  const onChange = ( value: boolean, field: string ) => {
+    setState({
+      ...state,
+      [field]: value,
+    })
+  }
 
   return (
-    <View style={styles.container}>
-      <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
+
+    <View style={{ marginHorizontal: 20 }}>
+      <HeaderTitle  title='Switchs'/>
+      <View style={styles.switchRow}>
+        <Text style={styles.switchText}>Is Active</Text>
+        <CuatomSwitch isOn={ isActive } onChange={ (value) => onChange(value, 'isActive') } />
+      </View>
+
+      <View style={styles.switchRow}>
+        <Text style={styles.switchText}>Is Hungry</Text>
+        <CuatomSwitch isOn={ isHungry } onChange={ (value) => onChange(value, 'isHungry') } />
+      </View>
+
+      <View style={styles.switchRow}>
+        <Text style={styles.switchText}>Is Happy</Text>
+        <CuatomSwitch isOn={ isHappy } onChange={ (value) => onChange(value, 'isHappy') } />
+      </View>
+
+      <Text style={styles.switchText}>
+       {JSON.stringify(state, null, 5)}
+      </Text>
     </View>
+   
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+  switchText: {
+    fontSize: 25,
+    
+  },
+  switchRow:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 10
   }
 });

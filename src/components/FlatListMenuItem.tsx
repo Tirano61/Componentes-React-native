@@ -15,7 +15,7 @@ export const FlatListMenuItem = ({menuItem}: Props) => {
     const navigation = useNavigation();
     return(
         <TouchableOpacity
-        activeOpacity={0.7}
+            activeOpacity={0.7}
             onPress={ () =>  navigation.navigate( menuItem.component) }
         >
             <View style={styles.container}>
