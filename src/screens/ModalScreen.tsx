@@ -5,7 +5,6 @@ import { View, Button, Modal, Text,Pressable } from 'react-native';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
 import { useState } from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const ModalScreen = () => {
   
@@ -23,8 +22,6 @@ export const ModalScreen = () => {
                 animationType='slide'
                 visible={isVisible}
                 transparent={true}
-                
-                
             >   
                 <View style={{
                     flex: 1,
