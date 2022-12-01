@@ -15,7 +15,7 @@ import { ItemSeparator } from '../components/ItemSeparator';
 export const HomeScreen = () => {
 
   const { top } = useSafeAreaInsets();
- 
+  
 
   const renderListHeader = () => {
     return (
