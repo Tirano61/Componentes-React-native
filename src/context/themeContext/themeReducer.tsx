@@ -7,6 +7,7 @@ type ThemeAction =
 export interface ThemeState extends Theme {
     currentTheme: 'light' | 'dark',
     dividerColor: string,
+    secundary: string,
 
 
 }
@@ -14,28 +15,31 @@ export interface ThemeState extends Theme {
 export const lightTheme: ThemeState =  {
     currentTheme:'light',
     dark:false,
-    dividerColor: 'rgba(0,0,0,0.7)',
+    dividerColor: 'red',
+    secundary: '#9F8EC9 ',
     colors: {
-        primary: 'red',
+        primary: "#084F6A",
         background: 'white',
         card: 'green',
-        text: 'pink',
+        text: 'black',
         border: 'orange',
         notification: 'grey', 
+        
     }
 }
 
 export const darkTheme: ThemeState =  {
     currentTheme:'dark',
     dark: true,
-    dividerColor: 'rgba(0,0,0,0.7)',
+    dividerColor: 'rgba(255,255,255,0.6)',
+    secundary: '#95D76D',
     colors: {
-        primary: 'red',
+        primary: '#75CEDB',
         background: 'black',
-        card: 'green',
+        card: 'black',
         text: 'white',
-        border: 'orange',
-        notification: 'grey', 
+        border: 'black',
+        notification: 'teal', 
     }
 }
 

@@ -1,8 +1,9 @@
 
 
 import React from 'react'
-import { Switch } from 'react-native';
-import {useState} from 'react';
+import { Switch, Platform } from 'react-native';
+import { useState, useContext } from 'react';
+import { ThemeContext } from '../context/themeContext/ThemeContext';
 
 
 interface Props{
@@ -12,6 +13,7 @@ interface Props{
 
 
 export const CuatomSwitch = ({ isOn, onChange }: Props ) => {
+    const {theme:{colors, secundary}} = useContext(ThemeContext);
 
     const [isEnabled, setIsEnabled] = useState(isOn);
     const toggleSwitch = () => {
@@ -21,8 +23,8 @@ export const CuatomSwitch = ({ isOn, onChange }: Props ) => {
 
     return (
         <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+            trackColor={{ false: "#D9D9B9", true: secundary }}
+            thumbColor={ (Platform.OS === 'android') ? colors.primary  : "" }
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
             value={isEnabled}

@@ -9,7 +9,7 @@ import { ThemeContext } from '../context/themeContext/ThemeContext';
 
 export const ChangeThemeScreen = () => {
 
-  const { setDarkTheme, setLightTheme } = useContext(ThemeContext)
+  const { setDarkTheme, setLightTheme, theme:{colors} } = useContext(ThemeContext)
   return (
     <View style={styles.globalMargin}>
         <HeaderTitle title='Change Theme'/>
@@ -17,13 +17,13 @@ export const ChangeThemeScreen = () => {
         <TouchableOpacity 
         onPress={ setLightTheme }
           activeOpacity={0.7}
-          style={style.touchable}>
-          <Text style={style.buttonText}>Light</Text>
+          style={{...style.touchable,backgroundColor: colors.primary}}>
+          <Text style={style.buttonText }>Light</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           onPress={ setDarkTheme }
             activeOpacity={0.7}
-            style={style.touchable}>
+            style={{...style.touchable, backgroundColor: colors.primary}}>
           <Text style={style.buttonText}>Dark</Text>
         </TouchableOpacity>
       </View>

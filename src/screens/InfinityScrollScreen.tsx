@@ -27,11 +27,10 @@ export const InfinityScrollScreen = () => {
           width: '100%',
           height: 400,
         }}/> 
-      // <Image 
+      // <Image                                                   
       //   source={{uri: `https://picsum.photos/id/${item}/200/300`}}
       //   style={{width:'100%', height: 400}}
-      // />
-      
+      // />  
     )
   }
 
